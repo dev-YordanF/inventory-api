@@ -47,11 +47,11 @@ function renderizarTabla(productos) {
                 <td class="text-success font-monospace fw-bold fs-6">S/ ${totalValue}</td>
                 <td class="text-end">
                     <div class="d-inline-flex gap-2">
-                        <button class="btn btn-sm btn-outline-info" onclick="editarProducto(${p.id})">
-                            <i class="fa-solid fa-pen-to-square me-1"></i>Editar
+                        <button class="btn btn-sm btn-outline-info rounded-circle px-2 py-1" onclick="editarProducto(${p.id})" title="Editar Producto">
+                            <i class="fa-solid fa-pen-to-square"></i>
                         </button>
-                        <button class="btn btn-sm btn-outline-danger" onclick="eliminarProducto(${p.id})">
-                            <i class="fa-solid fa-trash me-1"></i>Eliminar
+                        <button class="btn btn-sm btn-outline-danger rounded-circle px-2 py-1" onclick="eliminarProducto(${p.id})" title="Eliminar Producto">
+                            <i class="fa-solid fa-trash"></i>
                         </button>
                     </div>
                 </td>
