@@ -32,20 +32,21 @@ function renderizarTabla(productos) {
 
     tbody.innerHTML = productos.map(p => {
         const totalValue = (p.price * p.stockQuantity).toFixed(2);
+        const isLowStock = p.stockQuantity < 5;
         return `
             <tr>
-                <td class="fw-bold text-muted">#${p.id}</td>
+                <td class="fw-bold text-info">#${p.id}</td>
                 <td><span class="badge badge-sku">${p.sku}</span></td>
-                <td class="fw-semibold">${p.name}</td>
-                <td class="fw-bold text-light">S/ ${p.price.toFixed(2)}</td>
+                <td class="fw-semibold text-white">${p.name}</td>
+                <td class="fw-bold text-warning">S/ ${p.price.toFixed(2)}</td>
                 <td>
-                    <span class="badge ${p.stockQuantity < 5 ? 'bg-warning text-dark' : 'bg-success bg-opacity-20 text-success'}">
-                        ${p.stockQuantity} unidades
+                    <span class="badge" style="background-color: ${isLowStock ? '#f59e0b' : '#10b981'}; color: ${isLowStock ? '#000000' : '#ffffff'} !important; font-size: 0.85rem; padding: 6px 12px; font-weight: 600;">
+                        <i class="fa-solid ${isLowStock ? 'fa-triangle-exclamation me-1' : 'fa-check me-1'}"></i>${p.stockQuantity} unidades
                     </span>
                 </td>
-                <td class="text-success font-monospace fw-bold">S/ ${totalValue}</td>
+                <td class="text-success font-monospace fw-bold fs-6">S/ ${totalValue}</td>
                 <td class="text-end">
-                    <button class="btn btn-sm btn-outline-primary me-1" onclick="editarProducto(${p.id})">
+                    <button class="btn btn-sm btn-outline-info me-1" onclick="editarProducto(${p.id})">
                         <i class="fa-solid fa-pen-to-square"></i> Editar
                     </button>
                     <button class="btn btn-sm btn-outline-danger" onclick="eliminarProducto(${p.id})">

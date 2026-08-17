@@ -22,7 +22,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
 
-    // 1. C - CREAR: Guardar un nuevo producto en PostgreSQL con SKU generado automáticamente
+    //  Guardar un nuevo producto en PostgreSQL con SKU generado automáticamente
     @Override
     public Product saveProduct(Product product) {
         // Si el cliente no envió SKU o envió texto vacío, generamos un SKU estandarizado
@@ -34,19 +34,19 @@ public class ProductServiceImpl implements ProductService {
         }
         return productRepository.save(product);
     }
-    // 2. R - LEER TODOS: Obtener la lista completa de productos
+    //Obtener la lista completa de productos
     @Override
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
 
-    // 3. R - LEER UNO: Buscar un producto por su ID
+    //  Buscar un producto por su ID
     @Override
     public Product getProductById(Long id) {
         return productRepository.findById(id).orElse(null);
     }
 
-    // 4. U - ACTUALIZAR: Buscar un producto existente y modificar sus datos
+    //  Buscar un producto existente y modificar sus datos
     @Override
     public Product updateProduct(Long id, Product productDetails) {
         Product existingProduct = productRepository.findById(id).orElse(null);
@@ -60,7 +60,7 @@ public class ProductServiceImpl implements ProductService {
         return null;
     }
 
-    // 5. D - ELIMINAR: Borrar un producto de PostgreSQL por su ID
+    //  Borrar un producto de PostgreSQL por su ID
     @Override
     public void deleteProduct(Long id) {
         productRepository.deleteById(id);
