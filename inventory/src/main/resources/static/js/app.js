@@ -46,12 +46,14 @@ function renderizarTabla(productos) {
                 </td>
                 <td class="text-success font-monospace fw-bold fs-6">S/ ${totalValue}</td>
                 <td class="text-end">
-                    <button class="btn btn-sm btn-outline-info me-1" onclick="editarProducto(${p.id})">
-                        <i class="fa-solid fa-pen-to-square"></i> Editar
-                    </button>
-                    <button class="btn btn-sm btn-outline-danger" onclick="eliminarProducto(${p.id})">
-                        <i class="fa-solid fa-trash"></i> Eliminar
-                    </button>
+                    <div class="d-inline-flex gap-2">
+                        <button class="btn btn-sm btn-outline-info" onclick="editarProducto(${p.id})">
+                            <i class="fa-solid fa-pen-to-square me-1"></i>Editar
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger" onclick="eliminarProducto(${p.id})">
+                            <i class="fa-solid fa-trash me-1"></i>Eliminar
+                        </button>
+                    </div>
                 </td>
             </tr>
         `;
